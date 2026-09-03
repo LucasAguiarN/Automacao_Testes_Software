@@ -1,7 +1,7 @@
 def calcular_imc(nome, peso, altura):
     imc = peso / (altura**2)
-    if type(peso) != float and type(altura) != float:
-        raise TypeError()
+    if not isinstance(peso, (int, float)) or not isinstance(altura, (int, float)):
+        raise TypeError("Peso e altura devem ser números")
     if imc < 18.5:
         return f'{nome} seu IMC é Abaixo do Peso'
     elif imc >= 18.5 and imc <= 24.9:
